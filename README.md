@@ -1,3 +1,5 @@
+# Push các thay đổi lên branch Master trước rồi test sau đó mới merge vào main
+
 # QAirline - Vui từng chuyến bay
 
 **Bài tập lớn - INT3306: Phát triển ứng dụng web**
