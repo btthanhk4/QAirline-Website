@@ -1,0 +1,81 @@
+﻿@model AirlinesReservationSystem.Models.Form.OrderTicketForm
+@{
+    ViewBag.Title = "Search";
+}
+<section class="banner" id="top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="left-side">
+                    <div class="logo">
+                        <img href="/Asset/img/logo.png" alt="Flight Template">
+                    </div>
+                    <div class="tabs-content">
+                        <h4>Choose Your Direction:</h4>
+                        <ul class="social-links">
+                            <li><a href="https://www.facebook.com/Share-Source-Code-Website-189970988225280/">Find us on <em>Facebook</em><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="http://youtube.com/">Our <em>YouTube</em> Channel<i class="fa fa-youtube"></i></a></li>
+                            <li><a href="http://instagram.com/">Follow our <em>instagram</em><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="page-direction-button">
+                        <a href="contact.html"><i class="fa fa-phone"></i>Contact Us Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5 col-md-offset-1">
+                <section id="first-tab-group" class="tabgroup">
+                    <div id="tab1" style="display: block;">
+                        <div class="submit-form">
+                            <h4>Check availability for <em>direction</em>:</h4>
+                            @using (Html.BeginForm("Search", "Home", new { @id = string.Empty }, FormMethod.Post,
+new { @id = "form-submit", @name = "form-submit" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <label for="from">From:</label>
+                                            @Html.DropDownList("from", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.from, "", new { @class = "text-danger" })
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <label for="to">To:</label>
+                                            @Html.DropDownList("to", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.to, "", new { @class = "text-danger" })
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <label for="departure">Departure date:</label>
+                                            @Html.EditorFor(model => model.repartureDate, new { htmlAttributes = new { @class = "form-control date", @type = "datetime-local" } })
+                                            @Html.ValidationMessageFor(model => model.repartureDate, "", new { @class = "text-danger" })
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <label for="return">Return date:</label>
+                                            @Html.EditorFor(model => model.returnDate, new { htmlAttributes = new { @class = "form-control date", @type = "datetime-local" } })
+                                            @Html.ValidationMessageFor(model => model.returnDate, "", new { @class = "text-danger" })
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <button type="submit" class="btn btn-warning"><i class="fa fa-search" aria-hidden="true"> Search Ticket</i></button>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+

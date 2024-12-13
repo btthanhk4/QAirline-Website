@@ -1,0 +1,347 @@
+﻿@using AirlinesReservationSystem.Helper;
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.tooplate.com/templates/2093_flight/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 May 2018 10:39:09 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!--
+
+    Template 2093 Flight
+
+    http://www.tooplate.com/view/2093-flight
+
+    -->
+    <title>@ViewBag.Title</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.html">
+    <link rel="stylesheet" href="~/Content/css/bootstrap-theme.min.css">
+
+
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/fontAwesome.css">
+    <link rel="stylesheet" href="~/Content/css/hero-slider.css">
+    <link rel="stylesheet" href="~/Content/css/owl-carousel.css">
+    <link rel="stylesheet" href="~/Content/css/datepicker.css">
+    <link rel="stylesheet" href="~/Content/css/tooplate-style.css">
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <link rel="stylesheet" href="~/Content/css/snackbar.css">
+    <script src="~/Scripts/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="~/Scripts/js/vendor/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/plugins.js"></script>
+    <script src="~/Scripts/js/main.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+    <link rel="Shortcut Icon" href="~/Asset/img/logo-i.png" type="img/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <script src="~/Scripts/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" style="width: 100%; background-color: rgb(0 0 0 / 53%); z-index: 100; height:80px">
+        <nav class="navbar container" style="margin-top: 0px; margin-bottom: 0px; padding:20px">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="@Url.Action("Index","Home")"><img src="/Asset/img/logo.png" alt="Logo"></a>
+
+                </div>
+                @if (AuthHelper.isLogin() == true)
+                {
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <a href="@Url.Action("Deals")"><i class="fa fa-gift" aria-hidden="true"></i> Ưu đãi</a>
+                </li>
+                <li>
+                    <a class="dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-circle-o" aria-hidden="true"></i>  @AuthHelper.getIdentity().email <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-toggle="modal" data-target="#changPasswordModal">Đổi mật khẩu</a></li>
+                        <li><a href="@Url.Action("EditUser","Home",new { @id = AuthHelper.getIdentity().id})">Thông tin cá nhân</a></li>
+                        <li><a href="@Url.Action("YourTicket","Home")">Vé của tôi</a></li>
+                        <li><a href="@Url.Action("Logout","Security")">Đăng xuất</a></li>
+                    </ul>
+                </li>
+            </ul>
+                }
+                else
+                {
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <a href="@Url.Action("Deals")"><i class="fa fa-gift" aria-hidden="true"></i> Ưu đãi</a>
+                </li>
+                <li>
+                    <a data-toggle="modal" data-target="#registerModal"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng kí</a>
+                </li>
+                <li>
+                    <a data-toggle="modal" data-target="#loginModal"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Đăng nhập</a>
+                </li>
+            </ul>
+                }
+
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="primary-button">
+                        <a href="#" class="scroll-top">Quay lại đầu trang</a>
+                    </div>
+                </div>
+                <div class="col-md-12" style="color:white;margin-bottom:30px">
+                    <div class="col-md-3">
+                        <ul class="text-left">
+                            <li><h2>ARS Airlines</h2></li>
+                            <li><a href="#">Về chúng tôi</a></li>
+                            <li><a href="#">Đội ngũ</a></li>
+                            <li><a href="#">Nhà đầu tư</a></li>
+                            <li><a href="#">Nổi bật></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="text-left">
+                            <li><h2>Chính sách</h2></li>
+                            <li><a href="#">Điều khoản</a></li>
+                            <li><a href="#">Điều kiện vận chuyển</a></li>
+                            <li><a href="#">Chính sách bảo mật</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="text-left">
+                            <li><h2>Hỗ trợ</h2></li>
+                            <li><a href="#">Yêu cầu/ đều xuất</a></li>
+                            <li><a href="#">Dịch vụ khách hàng</a></li>
+                            <li><a href="#">Về chúng tôi</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="text-left">
+                            <li><h2>Khách hàng</h2></li>
+                            <li><a href="#">Cước phí hành lý</a></li>
+                            <li><a href="#">Thuế, phí, lệ phí và phụ phí</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr style="width:50%; margin:auto" , size="3" , color=black>
+                <div class="col-md-12" style="margin-top:20px">
+                    <p>Tổng đài hỗ trợ trong nước (24/7): 19001234</p>
+                    <p>Cho thành viên vip: 190012345</p>
+                    <p>Tổng đài hỗ trợ quốc tế (24/7): 190012346</p>
+                    <p>Email: le.nt254@gmail.com</p>
+                </div>
+                <hr style="width:50%; margin:auto" , size="3" , color=black>
+                <div class="col-md-12" style="margin-top:20px">
+                    <p><span class="glyphicon glyphicon-copyright-mark"></span> 2022 ARS Airline JSC</p>
+                    <p>ARS Airline JSC - 54 Lê Thanh Nghị, Đồng Tâm, Hai Bà Trưng, Hà Nội, Việt Nam</p>
+                    <p><b>Tel(+8424) 123421 - Fax(+8424) 5656434</b></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="modal fade" id="loginModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="padding:20px 80px;">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" style="font-size:5rem">&times;</button>
+                    <h2 class="modal-title">Sign In</h2>
+                </div>
+                <div class="modal-body" style="padding:20px;">
+                    <div class="btn-login-facebook">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                        <span>Đăng nhập với Facebook</span>
+                    </div>
+                    <div class="btn-login-facebook">
+                        <i class="fa fa-google-plus-official" aria-hidden="true"></i>
+                        <span>Đăng nhập với Google</span>
+                    </div>
+                    <p style="margin-top:20px">Hoặc đăng nhập bằng số điện thoại, email của bạn</p>
+                    <form action="#" name="loginForm" method="get">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Nhập vào email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="pwd" placeholder="Nhập vào mật khẩu" name="password" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Đăng nhập</b></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="text-center">
+                    <b><a href="#" style="color:blue">Quên mật khẩu</a></b>
+                </div>
+                <div class="text-center">
+                    <b>Bạn chưa có tài khoản? <a href="#" style="color:blue" id="sign-in-account">Đăng ký tại đây</a></b>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="modal fade" id="registerModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="padding:20px 80px;">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" style="font-size:5rem">&times;</button>
+                    <h2 class="modal-title">Đăng ký</h2>
+                </div>
+                <div class="modal-body" style="padding:20px;">
+                    <div class="btn-login-facebook">
+                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                        <span>Đăng ký với Facebook</span>
+                    </div>
+                    <div class="btn-login-facebook">
+                        <i class="fa fa-google-plus-official" aria-hidden="true"></i>
+                        <span>Đăng ký với Google</span>
+                    </div>
+                    <p style="margin-top:20px">Or log in with your phone number, email</p>
+                    <form action="@Url.Action("Register", "Security")" method="get" name="registerForm">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" placeholder="Nhập vào email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="pwd" name="password" placeholder="Nhập vào mật khẩu" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="re-pwd" name="re-password" placeholder="Nhập lại mật khẩu" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Đăng ký</b></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="text-center">
+                    <b>Bạn đã có tài khoản? <a href="#" style="color:blue" id="sign-up-account">Đăng nhập tại đây</a></b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="changPasswordModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="padding:20px 80px;">
+                <div class="modal-header text-center">
+                    <button type="button" class="close" data-dismiss="modal" style="font-size:5rem">&times;</button>
+                    <h2 class="modal-title">Đổi mật khẩu</h2>
+                </div>
+                <div class="modal-body" style="padding:20px;">
+                    <form action="@Url.Action("ChangePassword", "Home")" method="get" name="changPasswordForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="email" placeholder="Nhập vào mật khẩu hiện tại" name="old_password" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="pwd" name="new_password" placeholder="Nhập vào mật khẩu mới" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="re-pwd" name="re_password" placeholder="Nhạp lại mật khẩu mới" pattern="[a-zA-Z0-9]{6,100}" title="Mật khẩu phải lớn hơn 6 kí tự" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-warning form-control" style="border-radius:10px"><b>Lưu</b></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    @Html.Raw(AlertHelper.showToast())
+<script>
+
+    $(document).on("submit", "form[name=changPasswordForm]", function (event) {
+            event.preventDefault();
+            var url = "@Url.Action("ChangePassword", "Home")";
+            var old_password = $(this).find("input[name=old_password]").val();
+            var new_password = $(this).find("input[name=new_password]").val();
+            var re_password = $(this).find("input[name=re_password]").val();
+            if (new_password != re_password) {
+                alert("Mật khẩu mới không khớp.");
+                return false;
+            }
+            $.ajax({
+                url: url,
+                type: "get",
+                data: {
+                    old_password: old_password,
+                    new_password: new_password
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status == "200") {
+                        window.location.href = "@Url.Action("Index","Home")";
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+            return false;
+        });
+
+        $(document).on("submit", "form[name=loginForm]", function (event) {
+            event.preventDefault();
+            var url = "@Url.Action("Login", "Security")";
+            var email = $(this).find("input[name=email]").val();
+            var password = $(this).find("input[name=password]").val();
+            $.ajax({
+                url: url,
+                type: "get",
+                data: {
+                    email: email,
+                    password: password
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status == "200") {
+                        window.location.href = "@Url.Action("Index","Home")";
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+            return false;
+        });
+
+        $(document).on("submit", "form[name=registerForm]", function (event) {
+            event.preventDefault();
+            var url = "@Url.Action("Register", "Security")";
+            var email = $(this).find("input[name=email]").val();
+            var password = $(this).find("input[name=password]").val();
+            var rePassword = $(this).find("input[name=re-password]").val();
+            if (password != rePassword) {
+                alert("Re-password does not match password.");
+                return false;
+            }
+            $.ajax({
+                url: url,
+                type: "get",
+                data: {
+                    email: email,
+                    password: password
+                },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.status == "200") {
+                        window.location.href = "@Url.Action("Index","Home")";
+                    } else {
+                        alert(response.message);
+                    }
+                }
+            });
+            return false;
+        });
+
+
+</script>
+</body>
+
+<!-- Mirrored from www.tooplate.com/templates/2093_flight/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 28 May 2018 10:39:55 GMT -->
+</html>

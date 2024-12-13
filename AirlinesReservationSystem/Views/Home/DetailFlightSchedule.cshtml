@@ -1,0 +1,76 @@
+﻿@using AirlinesReservationSystem.Helper;
+@model AirlinesReservationSystem.Models.FlightSchedule
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title"><img src="~/Asset/logo.png" style="height:50px"><span>HN_PQ_200_@DateTimeOffset.Now.ToUnixTimeSeconds()</span></h4>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <label for="email">Plane: <span>@Html.DisplayFor(modelItem => Model.Plane.name)</span></label>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Từ:</label>
+        <input type="text" class="form-control" value="@Html.DisplayFor(modelItem => Model.AirPort.name)" readonly>
+    </div>
+    <div class="form-group">
+        <label for="email">Đến:</label>
+        <input type="text" class="form-control" value="@Html.DisplayFor(modelItem => Model.AirPort1.name)" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Thời gian đi:</label>
+        <input type="text" class="form-control" id="email" value="@Html.DisplayFor(modelItem => Model.departures_at)" readonly>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Thời gian đến:</label>
+        <input type="text" class="form-control" value="@Html.DisplayFor(modelItem => Model.arrivals_at)" readonly>
+    </div>
+
+
+    <div class="form-group">
+        <label for="email">Số lượng:</label>
+        <input type="number" min="1" class="form-control" id="email" value="1">
+    </div>
+
+    <div class="form-group">
+        <label>Giá : <span name="cost">@MoneyHelper.showVND(Model.cost)</span></label>
+    </div>
+
+    <div class="text-center">
+        <button class="btn btn-warning" data-id="@Model.id" style="padding: 10px 50px;"><i class="fa fa-usd" aria-hidden="true"></i> Pay</button>
+    </div>
+</div>
+<div class="modal-footer">
+    <p class="text-center"><b>Note:</b> You must be at the airport 30 minutes before departure time</p>
+</div>
+<script>
+    $(document).on("change", "#detailFlightScheduleModal input[type=number]", function () {
+        var price = $(this).val() * @Model.cost;
+        $("#detailFlightScheduleModal span[name=cost]").html(price.toLocaleString('vi', { style: 'currency', currency: 'VND' }));
+    });
+        $(document).on("click", "#detailFlightScheduleModal button", function () {
+        var id = $(this).attr("data-id");
+        var ticketID = $(this).closest(".modal-content").find(".modal-header h4 span").text();
+            var url = "@Url.Action("PayTicket", "Home")";
+            var count = $("#detailFlightScheduleModal input[type=number]").val();
+        $.ajax({
+            url: url,
+            type: "get",
+            data: {
+                ticketID: ticketID,
+                flightScheduleID: parseInt(id),
+                amount: parseInt(count),
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response.status == "200") {
+                    window.location.href = "@Url.Action("Index","Home")";
+                } else {
+                    alert(response.message);
+                }
+            }
+        });
+    });
+</script>
