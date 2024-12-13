@@ -1,0 +1,69 @@
+﻿@using AirlinesReservationSystem.Helper;
+@{
+    string _active = "";
+    string _controller = ViewContext.RouteData.Values["controller"].ToString();
+    string _action = ViewContext.RouteData.Values["action"].ToString();
+    string currentAction = ViewContext.RouteData.Values["controller"].ToString() + "/" + ViewContext.RouteData.Values["action"].ToString();
+ }
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="~/Asset/img/logo.png" style="width:200px" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item @{_active = _controller == "Default" ? "active" : ""; @_active}">
+                    <a class="nav-link" href="@Url.Action("Index","Default")">Bản điều khiển <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item @{_active = _controller == "Users" ? "active" : ""; @_active}">
+                    <a class="nav-link" href="@Url.Action("Index","Users")">Khách hàng</a>
+                </li>
+                <li class="nav-item @{_active = _controller == "Planes" ? "active" : ""; @_active}">
+                    <a class="nav-link" href="@Url.Action("Index","Planes")">Máy bay</a>
+                </li>
+                <li class="nav-item @{_active = _controller == "AirPorts" ? "active" : ""; @_active}">
+                    <a class="nav-link" href="@Url.Action("Index","AirPorts")">Sân bay</a>
+                </li>
+                <li class="nav-item @{_active = _controller == "FlightSchedules" ? "active" : ""; @_active}">
+                    <a class="nav-link" href="@Url.Action("Index","FlightSchedules")">Chuyến bay</a>
+                </li>
+
+                <li class="nav-item @{_active = _controller == "TicketManagers" ? "active" : ""; @_active}">
+                    <a class="nav-link" href="@Url.Action("Index","TicketManagers")">Vé</a>
+                </li>
+
+                <li class="nav-item"">
+                    <a class="nav-link" href="@Url.Action("Logout","Default")">Đăng xuát</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div>
+        @Html.Raw(AlertHelper.showAlert())
+        @RenderBody()
+    </div>
+    <div class="body-content">
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

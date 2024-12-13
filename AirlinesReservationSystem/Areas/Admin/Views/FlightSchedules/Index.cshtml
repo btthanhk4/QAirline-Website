@@ -1,0 +1,79 @@
+﻿@using AirlinesReservationSystem.Helper;
+@model IEnumerable<AirlinesReservationSystem.Models.FlightSchedule>
+
+@{
+    ViewBag.Title = "Danh sách sân bay";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid mt-2">
+    <div class="card">
+        <div class="card-header">
+            <b>@ViewBag.Title</b>
+        </div>
+        <div class="card-body table-responsive">
+            <a href="@Url.Action("Create")" class="btn btn-primary mb-3"><i class="fa fa-plus" aria-hidden="true"></i> Thêm dữ liệu</a>
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.code)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.plane_id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.from_airport)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.to_airport)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.departures_at)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.arrivals_at)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.cost)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Plane.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AirPort.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AirPort1.name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.departures_at)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.arrivals_at)
+                </td>
+                <td>
+                    @MoneyHelper.showVND(item.cost)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit",new { id = item.id })"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                    <a href="@Url.Action("Delete",new { id = item.id })">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+            }
+            </table>
+        </div>
+    </div>
+</div>
+

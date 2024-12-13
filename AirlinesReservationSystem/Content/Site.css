@@ -1,0 +1,61 @@
+﻿nav a {
+    color: white;
+}
+
+.form-control {
+    height: 40px !important;
+}
+
+#loginModal input[class="form-control"] {
+    border: none;
+    background: #e3e3e3;
+    border-radius: 10px;
+    background-color: rgb(237, 242, 247);
+}
+
+#loginModal .form-group {
+    margin-bottom: 20px;
+}
+
+#loginModal modal-dialog {
+    margin-top: 10vh;
+}
+
+.btn-login-facebook {
+    padding: 10px;
+    border: solid 1px rgb(26, 32, 44);
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+ul.nav.navbar-nav.pull-right {
+    cursor: auto;
+}
+
+
+a {
+    cursor: context-menu;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: transparent;
+    border-color: #337ab7;
+}
+
+footer a{
+    color:white!important;
+}
+footer li {
+    padding:10px
+}
+
+footer p {
+    color: #fff;
+    font-size: 12px;
+    margin-top: 0px;
+}
+
+.deals a {
+    color:black;
+}

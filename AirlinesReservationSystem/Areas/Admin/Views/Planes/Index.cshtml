@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AirlinesReservationSystem.Models.Plane>
+
+@{
+    ViewBag.Title = "Danh sách máy bay";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container mt-2">
+    <div class="card">
+        <div class="card-header">
+            <b>@ViewBag.Title</b>
+        </div>
+        <div class="card-body">
+            <a href="@Url.Action("Create")" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Thêm dữ liệu</a>
+            <table class="table table-striped mt-3">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.code)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.code)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit",new { id = item.id })"><i class="fa fa-pencil" aria-hidden="true"></i></a> |
+                            <a href="@Url.Action("Delete",new { id = item.id })">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+
+

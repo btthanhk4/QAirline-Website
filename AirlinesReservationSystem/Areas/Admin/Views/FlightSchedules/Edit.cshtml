@@ -1,0 +1,88 @@
+﻿@model AirlinesReservationSystem.Models.FlightSchedule
+
+@{
+    ViewBag.Title = "Cập nhập FlightSchedule";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-2">
+    <div class="card">
+        <div class="card-header">
+            <b style="font-size:1.4rem">@ViewBag.Title</b>
+            <a href="@Url.Action("Index")" class="btn btn-secondary pull-right">< Quay lại</a>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.id)
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="plane_id">Mã chuyến bay</label>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.code, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.code, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="plane_id">Máy bay</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("plane_id", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.plane_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="plane_id">Đi từ</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("from_airport", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.from_airport, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="plane_id">Đi đến</label>
+                    <div class="col-md-10">
+                        @Html.DropDownList("to_airport", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.to_airport, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.departures_at, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.departures_at, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.departures_at, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.arrivals_at, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.arrivals_at, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.arrivals_at, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.cost, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.cost, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.cost, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Cập nhập" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
