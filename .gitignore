@@ -1,0 +1,50 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Các thư mục build tạm thời
+bin/
+obj/
+debug/
+release/
+
+# Gói NuGet
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# File của cấu hình máy cục bộ
+appsettings.*.json
+app.config
+web.config
+appsettings.Development.json
+
+# Các file hệ thống
+*.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Tệp tạm thời hoặc cục bộ
+*.tmp
+*.log
+*.bak
+*.swp
+
+# Thư mục publish hoặc deploy
+publish/
+out/
+
+# File của IDE khác (JetBrains, Rider, Code)
+.idea/
+*.iml
+
+# Thư mục tạm của Windows
+$RECYCLE.BIN/
+*.~lock.*
+
+# Tệp migration chưa hoàn chỉnh
+*.Designer.cs
+*.resx
