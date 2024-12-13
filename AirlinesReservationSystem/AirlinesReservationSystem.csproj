@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{003934A8-08D6-4847-BD4D-0A58186B2919}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AirlinesReservationSystem</RootNamespace>
+    <AssemblyName>AirlinesReservationSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44369</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AirPortsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DefaultController.cs" />
+    <Compile Include="Areas\Admin\Controllers\FlightSchedulesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PlanesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SecurityController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TicketManagersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SecurityController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\AlertHelper.cs" />
+    <Compile Include="Helper\AuthHelper.cs" />
+    <Compile Include="Helper\Conection.cs" />
+    <Compile Include="Helper\MoneyHelper.cs" />
+    <Compile Include="Models\AirPort.cs" />
+    <Compile Include="Models\DataContext.cs" />
+    <Compile Include="Models\FlightSchedule.cs" />
+    <Compile Include="Models\Form\OrderTicketForm.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\Plane.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\TicketManager.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\2093_flight\apple-touch-icon.html" />
+    <Content Include="App_Data\2093_flight\contact.html" />
+    <Content Include="App_Data\2093_flight\css\bootstrap-theme.min.css" />
+    <Content Include="App_Data\2093_flight\css\bootstrap.min.css" />
+    <Content Include="App_Data\2093_flight\css\datepicker.css" />
+    <Content Include="App_Data\2093_flight\css\fontAwesome.css" />
+    <Content Include="App_Data\2093_flight\css\hero-slider.css" />
+    <Content Include="App_Data\2093_flight\css\owl-carousel.css" />
+    <Content Include="App_Data\2093_flight\css\tooplate-style.css" />
+    <Content Include="App_Data\2093_flight\fonts\fontawesome-webfont3e6e.html" />
+    <Content Include="App_Data\2093_flight\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="App_Data\2093_flight\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="App_Data\2093_flight\img\banner-bg.jpg" />
+    <Content Include="App_Data\2093_flight\img\contact-01.jpg" />
+    <Content Include="App_Data\2093_flight\img\contact-02.jpg" />
+    <Content Include="App_Data\2093_flight\img\contact-bg.jpg" />
+    <Content Include="App_Data\2093_flight\img\evening-event.jpg" />
+    <Content Include="App_Data\2093_flight\img\fitness-service.jpg" />
+    <Content Include="App_Data\2093_flight\img\heading-bg.jpg" />
+    <Content Include="App_Data\2093_flight\img\logo-i.png" />
+    <Content Include="App_Data\2093_flight\img\logo.png" />
+    <Content Include="App_Data\2093_flight\img\massage-service.jpg" />
+    <Content Include="App_Data\2093_flight\img\place-01.jpg" />
+    <Content Include="App_Data\2093_flight\img\place-02.jpg" />
+    <Content Include="App_Data\2093_flight\img\place-03.jpg" />
+    <Content Include="App_Data\2093_flight\img\place-04.jpg" />
+    <Content Include="App_Data\2093_flight\img\service-icon-01.1.png" />
+    <Content Include="App_Data\2093_flight\img\service-icon-01.png" />
+    <Content Include="App_Data\2093_flight\img\service-icon-02.2.png" />
+    <Content Include="App_Data\2093_flight\img\service-icon-02.png" />
+    <Content Include="App_Data\2093_flight\img\service-icon-03.3.png" />
+    <Content Include="App_Data\2093_flight\img\service-icon-03.png" />
+    <Content Include="App_Data\2093_flight\img\slide_01.html" />
+    <Content Include="App_Data\2093_flight\img\slide_02.html" />
+    <Content Include="App_Data\2093_flight\img\slide_03.html" />
+    <Content Include="App_Data\2093_flight\img\suite-01.jpg" />
+    <Content Include="App_Data\2093_flight\img\suite-02.jpg" />
+    <Content Include="App_Data\2093_flight\img\suite-03.jpg" />
+    <Content Include="App_Data\2093_flight\img\swiming-pool.jpg" />
+    <Content Include="App_Data\2093_flight\img\weather-bg.jpg" />
+    <Content Include="App_Data\2093_flight\img\weather-icon-01.png" />
+    <Content Include="App_Data\2093_flight\img\weather-icon-02.png" />
+    <Content Include="App_Data\2093_flight\img\weather-icon-03.png" />
+    <Content Include="App_Data\2093_flight\index.html" />
+    <Content Include="App_Data\2093_flight\js\datepicker.js" />
+    <Content Include="App_Data\2093_flight\js\main.js" />
+    <Content Include="App_Data\2093_flight\js\plugins.js" />
+    <Content Include="App_Data\2093_flight\js\vendor\bootstrap.min.js" />
+    <Content Include="App_Data\2093_flight\js\vendor\jquery-1.11.2.min.js" />
+    <Content Include="App_Data\2093_flight\js\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
+    <Content Include="App_Data\sql\script-v3.sql" />
+    <Content Include="App_Data\sql\sql-v2.sql" />
+    <Content Include="App_Data\sql\sql-v1.sql" />
+    <Content Include="Asset\img\bamboo-airways-di-anh-uc-duc1.jpg" />
+    <Content Include="Asset\img\banner-bg.jpg" />
+    <Content Include="Asset\img\bay-mua-thu-bamboo-airways-1.jpg" />
+    <Content Include="Asset\img\bay-quoc-te-bamboo-airways.jpg" />
+    <Content Include="Asset\img\contact-01.jpg" />
+    <Content Include="Asset\img\contact-02.jpg" />
+    <Content Include="Asset\img\contact-bg.jpg" />
+    <Content Include="Asset\img\evening-event.jpg" />
+    <Content Include="Asset\img\fitness-service.jpg" />
+    <Content Include="Asset\img\heading-bg.jpg" />
+    <Content Include="Asset\img\logo-i.png" />
+    <Content Include="Asset\img\logo.png" />
+    <Content Include="Asset\img\massage-service.jpg" />
+    <Content Include="Asset\img\place-01.jpg" />
+    <Content Include="Asset\img\place-02.jpg" />
+    <Content Include="Asset\img\place-03.jpg" />
+    <Content Include="Asset\img\place-04.jpg" />
+    <Content Include="Asset\img\service-icon-01.1.png" />
+    <Content Include="Asset\img\service-icon-01.png" />
+    <Content Include="Asset\img\service-icon-02.2.png" />
+    <Content Include="Asset\img\service-icon-02.png" />
+    <Content Include="Asset\img\service-icon-03.3.png" />
+    <Content Include="Asset\img\service-icon-03.png" />
+    <Content Include="Asset\img\slide_01.html" />
+    <Content Include="Asset\img\slide_02.html" />
+    <Content Include="Asset\img\slide_03.html" />
+    <Content Include="Asset\img\suite-01.jpg" />
+    <Content Include="Asset\img\suite-02.jpg" />
+    <Content Include="Asset\img\suite-03.jpg" />
+    <Content Include="Asset\img\swiming-pool.jpg" />
+    <Content Include="Asset\img\weather-bg.jpg" />
+    <Content Include="Asset\img\weather-icon-01.png" />
+    <Content Include="Asset\img\weather-icon-02.png" />
+    <Content Include="Asset\img\weather-icon-03.png" />
+    <Content Include="Asset\logo.png" />
+    <Content Include="Asset\place\1606216163_Kinh-nghiem-tham-quan-du-lich-phuot-Cau-Vang-Da.jpg" />
+    <Content Include="Asset\place\anh-2-bjed.jpg" />
+    <Content Include="Asset\place\cat_ba %281%29.jpg" />
+    <Content Include="Asset\place\cat_ba.jpg" />
+    <Content Include="Asset\place\du-lich-ninh-binh-voi-canh-dong-lua-chin.jpg" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap-theme.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\datepicker.css" />
+    <Content Include="Content\css\fontAwesome.css" />
+    <Content Include="Content\css\hero-slider.css" />
+    <Content Include="Content\css\owl-carousel.css" />
+    <Content Include="Content\css\snackbar.css" />
+    <Content Include="Content\css\tooplate-style.css" />
+    <Content Include="Content\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont3e6e.html" />
+    <Content Include="Content\fonts\fontawesome-webfont3e6e.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\login.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Admin\Views\Default\Index.cshtml" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Areas\Admin\Views\Planes\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Planes\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Planes\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Planes\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Planes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AirPorts\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AirPorts\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AirPorts\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AirPorts\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AirPorts\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\FlightSchedules\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\FlightSchedules\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\FlightSchedules\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\FlightSchedules\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\FlightSchedules\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\TicketManagers\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TicketManagers\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TicketManagers\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\TicketManagers\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TicketManagers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Security\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Security\Login.cshtml" />
+    <Content Include="App_Data\2093_flight\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="App_Data\2093_flight\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="App_Data\2093_flight\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="App_Data\2093_flight\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="App_Data\2093_flight\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App_Data\2093_flight\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="App_Data\2093_flight\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="App_Data\2093_flight\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont3e6e.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont3e6e.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont3e6e.woff" />
+    <Content Include="Content\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regulard41d.eot" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\js\datepicker.js" />
+    <Content Include="Scripts\js\main.js" />
+    <Content Include="Scripts\js\plugins.js" />
+    <Content Include="Scripts\js\vendor\bootstrap.min.js" />
+    <Content Include="Scripts\js\vendor\jquery-1.11.2.min.js" />
+    <Content Include="Scripts\js\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\View.cshtml" />
+    <Content Include="Views\Home\_View.cshtml" />
+    <Content Include="Views\Home\DetailFlightSchedule.cshtml" />
+    <Content Include="Views\Home\YourTicket.cshtml" />
+    <Content Include="Views\Home\DetailTicket.cshtml" />
+    <Content Include="Views\Home\EditUser.cshtml" />
+    <Content Include="Views\Home\Deals.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\Auth\" />
+    <Folder Include="Views\Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61914</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44369/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
